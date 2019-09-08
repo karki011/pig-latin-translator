@@ -6,10 +6,16 @@
         "eat" becomes "eatyay"
         "omelet" becomes "omeletyay" 
 */
+let vowel = ['a', 'e', 'i', 'o', 'u'];
+let words = 'Encode words that begin with'
 function encodeVowelWord(word) {
-    return ''; // replace this!
-  }
-  
+  let str = words;
+  let res = str.charAt(0);
+  return res;
+}
+encodeVowelWord(words)
+console.log('encodeVowelWord(words):', encodeVowelWord(words))
+
   /*  
       STEP # 2: Encode words that begin with a consonant sound from english to pig latin.
       For words that begin with consonant sounds, all letters before the initial vowel 
