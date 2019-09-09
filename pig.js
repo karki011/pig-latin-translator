@@ -7,7 +7,7 @@
         "omelet" becomes "omeletyay" 
 */
 const vowels = /[aeiou]/;
-
+let vowel =["a","e","i","o","u"];
 function encodeVowelWord(word) {
     let spiltWord = word.toLowerCase().split(' ');
     let newWord = spiltWord;
@@ -44,9 +44,10 @@ function encodeVowelWord(word) {
 */
 
 function encodeConsonantWord(word) {
-    return word
-        .replace(/^[aeiou]\w*/, "$&way")
-        .replace(/(^[^aeiou]+)(\w*)/, "$2-$1ay");
+    if (vowel.indexOf(word.charAt(0)) != -1){
+        return word += "way";
+      }
+      return word.replace( /([^aeiou]*)([aeiou]\w*)/ , "$2-$1ay");
 }
 
 /*  
@@ -68,6 +69,7 @@ function encodeWord(word) {
     }
     return word;
 }
+console.log(encodeWord("ae"));
 
 /*
     STEP # 4: Encode a full sentence or paragraph from english to pig latin.
