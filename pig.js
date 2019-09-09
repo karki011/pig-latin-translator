@@ -22,6 +22,16 @@ function encodeVowelWord(word) {
     return newWord; 
 }
 
+//shorter way to do with RegEx
+
+// const vowels = /[aeiou]/;
+// function encodeVowelWord(word) {
+//   if(word[0].match(vowels)){
+//     word = word + "yay";
+//   }
+//   return word; 
+// }
+
 /*  
     STEP # 2: Encode words that begin with a consonant sound from english to pig latin.
     For words that begin with consonant sounds, all letters before the initial vowel 
@@ -31,9 +41,27 @@ function encodeVowelWord(word) {
         "latin" becomes "atin-lay"
         "cheers" becomes "eers-chay"
 */
+let wordss = 'hietgereither';
+
 function encodeConsonantWord(word) {
-    return ''; // replace this!
+
+    let spiltWord = word.toLowerCase().split(' ');
+    console.log(spiltWord);
+    
+    let newWord = spiltWord;
+    for (i = 0; i < newWord.length; i++) {
+        if ((newWord[i].charAt(i) === 'a') ||
+            (newWord[i].charAt(i) === 'e') ||
+            (newWord[i].charAt(i) === 'i') ||
+            (newWord[i].charAt(i) === 'o') ||
+            (newWord[i].charAt(i) === 'u')) {
+            return (newWord[i] + 'ay');
+        }
+    }
+    return newWord;
+    
 }
+console.log(encodeConsonantWord(wordss));
 
 /*  
     STEP # 3: Decide whether a given word starts with a vowel sound or consonant sound,
@@ -289,65 +317,91 @@ function testDecodeText(words) {
     }
 }
 
+  console.log(
     'Testing STEP # 1: encoding words that begin with a vowel sound...'
   );
   if (encodeVowelWord('apple') != '') {
     testEncodeVowelWords(testVowelWords);
   } else {
+    console.log('encodeVowelWord not implemented!');
   }
+  console.log(
     'Testing STEP # 2: encoding words that begin with a consonant sound...'
   );
   if (encodeConsonantWord('test') != '') {
     testEncodeConsonantWords(testSimpleConsonantWords);
   } else {
+    console.log('encodeConsonantWord not implemented!');
   }
+  console.log(
     'Testing STEP # 2 (cont): encoding words that begin with a consonant clusters...'
   );
   if (encodeConsonantWord('test') != '') {
     testEncodeConsonantWords(testClusteredConsonantWords);
   } else {
+    console.log('encodeConsonantWord not implemented!');
   }
+  console.log(
     'Testing STEP # 3: deciding to encode between vowel and consonant words...'
   );
   if (encodeWord('test') != '') {
     testEncodeWords(testWords);
   } else {
+    console.log('encodeWord not implemented!');
   }
+  console.log('Testing STEP # 4: encode a sentence (no punctuation)...');
   if (encodeText('test') != '') {
     testEncodeText(testWords);
   } else {
+    console.log('encodeText not implemented!');
   }
+  console.log(
     'Testing STEP # 6: decoding words that begin with a vowel sound...'
   );
   if (decodeVowelWord('appleyay') != '') {
     testDecodeVowelWords(testVowelWords);
   } else {
+    console.log('decodeVowelWord not implemented!');
   }
+  console.log(
     'Testing STEP # 7: decoding words that begin with a consonant sound...'
   );
   if (decodeConsonantWord('est-tay') != '') {
     testDecodeConsonantWords(testSimpleConsonantWords);
   } else {
+    console.log('decodeConsonantWord not implemented!');
   }
+  console.log(
     'Testing STEP # 7 (cont): decoding words that begin with a consonant clusters...'
   );
   if (decodeConsonantWord('est-tay') != '') {
     testDecodeConsonantWords(testClusteredConsonantWords);
   } else {
+    console.log('decodeConsonantWord not implemented!');
   }
+  console.log(
     'Testing STEP # 8: deciding to decode between vowel and consonant words...'
   );
   if (decodeWord('appleyay') != '') {
     testDecodeWords(testWords);
   } else {
+    console.log('decodeWord not implemented!');
   }
+  console.log('Testing STEP # 9: encode a sentence (no punctuation)...');
   if (decodeText('appleyay') != '') {
     testDecodeText(testWords);
   } else {
+    console.log('decodeText not implemented!');
   }
+  console.log('FINAL: Decoding the chipotle message (no punctuation)...');
   if (decodeText('appleyay') != '') {
+    console.log(decodeText(simpleChipotleMessage));
   } else {
+    console.log('decodeText not implemented!');
   }
+  console.log('BONUS: Decoding the chipotle message (with punctuation)...');
   if (decodeText('appleyay') != '') {
+    console.log(decodeText(chipotleMessage));
   } else {
+    console.log('decodeText not implemented!');
   }
