@@ -13,10 +13,11 @@
 }
 
 #title {
-    /* grid-column-start: 1;
-    grid-column-end: 4; */
+
     text-align: center;
     text-transform: uppercase;
+    filter: drop-shadow(2px 4px 6px red);
+
 }
 .reset{
     grid-column-start: span 2;
@@ -25,6 +26,17 @@
 textarea {
     min-height: 350px;
     font-size: 20px;
+    background-image: url('./pig.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: drop-shadow(2px 4px 6px black);
+}
+#textarea2 {
+    background-image: url('./human.png') !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
 }
 
 button {
@@ -32,12 +44,8 @@ button {
     font-size: 20px;
     align-self: center;
     cursor: pointer;
-}
-
-.buttonContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    filter: drop-shadow(2px 4px 6px black);
+    background: white;
 }
 
 .display {
