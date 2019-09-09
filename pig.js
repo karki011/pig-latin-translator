@@ -199,8 +199,7 @@ function decodeInputText(input) {
         inputSplit[i] = decodeWord(inputSplit[i])
     }
     let output = inputSplit.join(' ');
-    let finalOutput = output.replace(/[.,\/#!$%\^&\*;:{}=\`~()]/g, "");
-
+    let finalOutput = (output +'.');
     return finalOutput;
 }
 const button2 = document.getElementById("findButtonEng");
