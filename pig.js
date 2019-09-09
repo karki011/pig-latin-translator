@@ -143,10 +143,10 @@ function decodeVowelWord(word) {
         "eers-chay" becomes "cheers"
 */
 function decodeConsonantWord(word) {
-   word = word.slice(0,-2);
-   let spiltWord = word.split('-');
-   let nword =spiltWord[1]+spiltWord[0];
-   return nword;
+    word = word.slice(0, -2);
+    let spiltWord = word.split('-');
+    let nword = spiltWord[1] + spiltWord[0];
+    return nword;
 }
 
 /*  
@@ -162,8 +162,14 @@ function decodeConsonantWord(word) {
         "ou-yay" becomes "you" because it ends with a hyphen, a consonant sound, and an "ay"
 */
 function decodeWord(word) {
-    return ''; // replace this!
+    if (word.includes('-')) {
+        word =decodeConsonantWord(word);
+    } else {
+        word = decodeVowelWord(word);
+    }
+    return word; 
 }
+
 
 /*
     STEP # 9: Decode a full sentence or paragraph pig latin to english.
@@ -171,7 +177,7 @@ function decodeWord(word) {
 function decodeText(text) {
     return ''; // replace this!
 }
-
+// 
 /*
     STEP # 10: Create a web form where users can input any message in pig latin and get it 
     decoded into plain english.
