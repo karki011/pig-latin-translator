@@ -1,10 +1,56 @@
-:root{
+:root {
     box-sizing: border-box;
-}
-body{
-    width: 80%;
+    width: 40%;
     margin: 0 auto;
+    margin-top: 3%;
+    background-color: linen;
 }
-.title {
+
+.container {
+    display: grid;
+    grid-template-columns: column;
+    grid-gap: 10px;
+}
+
+#title {
+    /* grid-column-start: 1;
+    grid-column-end: 4; */
     text-align: center;
+    text-transform: uppercase;
+}
+
+input {
+    min-height: 350px;
+    text-align: center;
+    font-size: 20px;
+}
+
+button {
+    height: 50px;
+    font-size: 20px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.display {
+    margin: 10px;
+    width: auto;
+    padding: 26px;
+    color: blue;
+    display: inline-grid;
+    grid-gap: 5px;
+    justify-self: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+#wordsDiv {
+    text-align: center;
+    text-transform: uppercase;
+    grid-row-start: span 10
 }

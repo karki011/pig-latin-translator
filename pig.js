@@ -69,7 +69,7 @@ function encodeWord(word) {
     }
     return word;
 }
-console.log(encodeWord("ae"));
+// console.log(encodeWord("ae"));
 
 /*
     STEP # 4: Encode a full sentence or paragraph from english to pig latin.
@@ -85,12 +85,25 @@ function encodeText(text) {
     // console.log(output);
     return output; // replace this!
 }
-console.log(encodeText('text thi is am apple'));
+// console.log(encodeText('text thi is am apple'));
 
 /*
     STEP # 5: Create a web form where users can input any message in plain english
     and get it encoded into pig latin.
 */
+function encodeInputText() {
+    // let input = prompt("Enter text");
+    let inputSplit = input.split(' ');
+    // console.log(textSplit);
+    for(let i = 0; i < inputSplit.length; i++){
+        inputSplit[i] = encodeWord(inputSplit[i])
+        // console.log('textSplit[i]:', textSplit[i])
+    }
+    let output = inputSplit.join(' ');
+    // console.log(output);
+    return output; // replace this!
+}
+console.log(encodeInputText());
 
 /*  
     STEP # 6: Decode pig latin words into words that begin with a vowel sound. 
