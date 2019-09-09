@@ -118,17 +118,6 @@ button.onclick = function () {
     const destination = document.getElementById("wordsDiv");
     destination.appendChild(newElement);
 }
-// function display() {
-//     const newElement = document.createElement("span");
-//     newElement.className = "display";
-//     let newOutput = output.join(', ')
-//     const newText = document.createTextNode(newOutput);
-//     newElement.appendChild(newText);
-//     const destination = document.getElementById("wordsDiv" );
-//     destination.appendChild(newElement);
-//   }
-//   console.log(output);
-//   return display();
 
 
 /*  
@@ -140,7 +129,8 @@ button.onclick = function () {
         "omeletyay" becomes "omelet" 
 */
 function decodeVowelWord(word) {
-    return ''; // replace this!
+    word = word.slice(0, -3);
+    return word;
 }
 
 
