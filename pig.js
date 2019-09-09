@@ -175,8 +175,14 @@ function decodeWord(word) {
     STEP # 9: Decode a full sentence or paragraph pig latin to english.
 */
 function decodeText(text) {
-    return ''; // replace this!
+    let textSplit = text.split(' ');
+    for (let i = 0; i < textSplit.length; i++) {
+        textSplit[i] = decodeWord(textSplit[i])
+    }
+    let output = textSplit.join(' ');
+    return output;
 }
+
 // 
 /*
     STEP # 10: Create a web form where users can input any message in pig latin and get it 
