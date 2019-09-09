@@ -75,9 +75,17 @@ console.log(encodeWord("ae"));
     STEP # 4: Encode a full sentence or paragraph from english to pig latin.
 */
 function encodeText(text) {
-    return ''; // replace this!
+    let textSplit = text.split(' ');
+    // console.log(textSplit);
+    for(let i = 0; i < textSplit.length; i++){
+        textSplit[i] = encodeWord(textSplit[i])
+        // console.log('textSplit[i]:', textSplit[i])
+    }
+    let output = textSplit.join(' ');
+    // console.log(output);
+    return output; // replace this!
 }
-
+console.log(encodeText('text thi is am apple'));
 
 /*
     STEP # 5: Create a web form where users can input any message in plain english
