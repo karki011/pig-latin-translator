@@ -6,16 +6,17 @@
         "eat" becomes "eatyay"
         "omelet" becomes "omeletyay" 
 */
-const resetResult= function(){
+const resetResult = function () {
     document.getElementById("wordsDiv").innerHTML = "";
     var input = document.getElementById("input");
-    input_value =  input.getAttribute("value");
+    input_value = input.getAttribute("value");
     input_value = "";
-    
-  }
-  
+
+}
+
 const vowels = /[aeiou]/;
-let vowel =["a","e","i","o","u"];
+let vowel = ["a", "e", "i", "o", "u"];
+
 function encodeVowelWord(word) {
     let spiltWord = word.toLowerCase().split(' ');
     let newWord = spiltWord;
@@ -52,10 +53,10 @@ function encodeVowelWord(word) {
 */
 
 function encodeConsonantWord(word) {
-    if (vowel.indexOf(word.charAt(0)) != -1){
+    if (vowel.indexOf(word.charAt(0)) != -1) {
         return word += "way";
-      }
-      return word.replace( /([^aeiou]*)([aeiou]\w*)/ , "$2-$1ay");
+    }
+    return word.replace(/([^aeiou]*)([aeiou]\w*)/, "$2-$1ay");
 }
 
 /*  
@@ -84,16 +85,13 @@ function encodeWord(word) {
 */
 function encodeText(text) {
     let textSplit = text.split(' ');
-    // console.log(textSplit);
-    for(let i = 0; i < textSplit.length; i++){
+    for (let i = 0; i < textSplit.length; i++) {
         textSplit[i] = encodeWord(textSplit[i])
-        // console.log('textSplit[i]:', textSplit[i])
     }
     let output = textSplit.join(' ');
-    // console.log(output);
-    return output; // replace this!
+    return output;
 }
-// console.log(encodeText('text thi is am apple'));
+
 
 /*
     STEP # 5: Create a web form where users can input any message in plain english
@@ -101,21 +99,23 @@ function encodeText(text) {
 */
 function encodeInputText(input) {
     let inputSplit = input.split(' ');
-    for(let i = 0; i < inputSplit.length; i++){
+    for (let i = 0; i < inputSplit.length; i++) {
         inputSplit[i] = encodeWord(inputSplit[i])
     }
     let output = inputSplit.join(' ');
-    return output;
+    let finalOutput = output.replace(/[.,\/#!$%\^&\*;:{}=\`~()]/g, "");
+
+    return finalOutput;
 }
 const button = document.getElementById("findButton");
 button.onclick = function () {
-  let typedText = document.getElementById("textarea").value;
-  console.log(encodeInputText(typedText));
-  const newElement = document.createElement("span");
+    let typedText = document.getElementById("textarea").value;
+    console.log(encodeInputText(typedText));
+    const newElement = document.createElement("span");
     newElement.className = "display";
     const newText = document.createTextNode(encodeInputText(typedText));
     newElement.appendChild(newText);
-    const destination = document.getElementById("wordsDiv" );
+    const destination = document.getElementById("wordsDiv");
     destination.appendChild(newElement);
 }
 // function display() {
