@@ -8,9 +8,13 @@
 */
 const resetResult = function () {
     document.getElementById("wordsDiv").innerHTML = "";
-    var input = document.getElementById("input");
+    document.getElementById("engDiv").innerHTML = "";
+    var input = document.getElementById("textarea");
+    var input2 = document.getElementById("textarea2");
     input_value = input.getAttribute("value");
     input_value = "";
+    input_value2 = input2.getAttribute("value");
+    input_value2 = "";
 
 }
 
@@ -189,6 +193,26 @@ function decodeText(text) {
     decoded into plain english.
 */
 
+function decodeInputText(input) {
+    let inputSplit = input.split(' ');
+    for (let i = 0; i < inputSplit.length; i++) {
+        inputSplit[i] = decodeWord(inputSplit[i])
+    }
+    let output = inputSplit.join(' ');
+    let finalOutput = output.replace(/[.,\/#!$%\^&\*;:{}=\`~()]/g, "");
+
+    return finalOutput;
+}
+const button2 = document.getElementById("findButtonEng");
+button2.onclick = function () {
+    let typedText = document.getElementById("textarea2").value;
+    const newElement = document.createElement("span");
+    newElement.className = "display";
+    const newText = document.createTextNode(decodeInputText(typedText));
+    newElement.appendChild(newText);
+    const destination = document.getElementById("engDiv");
+    destination.appendChild(newElement);
+}
 /*
     BONUS: Go back to encodeText and decodeText and modify it so it can gracefully handle punctuation 
     such as '.', ',', '?'
