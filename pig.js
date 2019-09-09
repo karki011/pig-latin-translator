@@ -143,7 +143,10 @@ function decodeVowelWord(word) {
         "eers-chay" becomes "cheers"
 */
 function decodeConsonantWord(word) {
-    return ''; // replace this!
+   word = word.slice(0,-2);
+   let spiltWord = word.split('-');
+   let nword =spiltWord[1]+spiltWord[0];
+   return nword;
 }
 
 /*  
