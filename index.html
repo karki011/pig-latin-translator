@@ -12,17 +12,17 @@
 <body>
     <div class="container">
         <h1 id="title">PIG LATIN TRANSLATOR</h1>
-        <textarea id="textarea" name="Text1" cols="40" rows="5" onfocus="this.value=''" placeholder="Lets talk the way pig do."></textarea>
-
+        <h1 id="title">English Translator</h1>
+        <textarea id="textarea" name="Text1" cols="40" rows="5" onfocus="this.value=''"
+            placeholder="Lets talk the way pig do."></textarea>
+        <textarea id="textarea" name="Text1" cols="40" rows="5" onfocus="this.value=''"
+            placeholder="Lets talk the our way."></textarea>
+            <button id="findButton">Pig-Translate</button>
+            <button id="findButton">English-Translate</button>
+            <button id="selector" class="reset" onclick="resetResult()">Reset</button>
+            <div id="wordsDiv"></div>
+            <div id="engDiv"></div>
     </div>
-    <div class="buttonContainer">
-        <button id="findButton">Translate</button>
-        <button id="selector" onclick="resetResult()">Reset</button>
-    </div>
-
-    <div id="wordsDiv"></div>
-
-
     <script src="pig.js"></script>
 </body>
 

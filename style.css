@@ -1,6 +1,6 @@
 :root {
     box-sizing: border-box;
-    width: 40%;
+    width: 70%;
     margin: 0 auto;
     margin-top: 3%;
     background-color: linen;
@@ -8,7 +8,7 @@
 
 .container {
     display: grid;
-    grid-template-columns: column;
+    grid-template-columns: 50% 50%;
     grid-gap: 10px;
 }
 
@@ -18,12 +18,13 @@
     text-align: center;
     text-transform: uppercase;
 }
+.reset{
+    grid-column-start: span 2;
+}
 
 textarea {
     min-height: 350px;
-    /* text-align: center; */
     font-size: 20px;
-    overflow-wrap: break-word;
 }
 
 button {
@@ -36,6 +37,7 @@ button {
 .buttonContainer {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
 }
 
 .display {
@@ -51,7 +53,10 @@ button {
 }
 
 #wordsDiv {
-    grid-row-start: span 10;
-    border: 1px solid salmon;
+    border: 1px solid gold;
     background: lightblue;
+}
+#engDiv{
+    border: 1px solid gold;
+    background: gold;
 }
