@@ -6,6 +6,14 @@
         "eat" becomes "eatyay"
         "omelet" becomes "omeletyay" 
 */
+const resetResult= function(){
+    document.getElementById("wordsDiv").innerHTML = "";
+    var input = document.getElementById("input");
+    input_value =  input.getAttribute("value");
+    input_value = "";
+    
+  }
+  
 const vowels = /[aeiou]/;
 let vowel =["a","e","i","o","u"];
 function encodeVowelWord(word) {
@@ -91,19 +99,37 @@ function encodeText(text) {
     STEP # 5: Create a web form where users can input any message in plain english
     and get it encoded into pig latin.
 */
-function encodeInputText() {
-    // let input = prompt("Enter text");
+function encodeInputText(input) {
     let inputSplit = input.split(' ');
-    // console.log(textSplit);
     for(let i = 0; i < inputSplit.length; i++){
         inputSplit[i] = encodeWord(inputSplit[i])
-        // console.log('textSplit[i]:', textSplit[i])
     }
     let output = inputSplit.join(' ');
-    // console.log(output);
-    return output; // replace this!
+    return output;
 }
-console.log(encodeInputText());
+const button = document.getElementById("findButton");
+button.onclick = function () {
+  let typedText = document.getElementById("textarea").value;
+  console.log(encodeInputText(typedText));
+  const newElement = document.createElement("span");
+    newElement.className = "display";
+    const newText = document.createTextNode(encodeInputText(typedText));
+    newElement.appendChild(newText);
+    const destination = document.getElementById("wordsDiv" );
+    destination.appendChild(newElement);
+}
+// function display() {
+//     const newElement = document.createElement("span");
+//     newElement.className = "display";
+//     let newOutput = output.join(', ')
+//     const newText = document.createTextNode(newOutput);
+//     newElement.appendChild(newText);
+//     const destination = document.getElementById("wordsDiv" );
+//     destination.appendChild(newElement);
+//   }
+//   console.log(output);
+//   return display();
+
 
 /*  
     STEP # 6: Decode pig latin words into words that begin with a vowel sound. 
