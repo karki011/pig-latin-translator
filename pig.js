@@ -7,6 +7,7 @@
         "omelet" becomes "omeletyay" 
 */
 let vowel = ['a', 'e', 'i', 'o', 'u'];
+
 function encodeVowelWord(word) {
     let spiltWord = word.toLowerCase().split(' ');
     let newWord = spiltWord;
@@ -19,9 +20,9 @@ function encodeVowelWord(word) {
             return (newWord[i] + 'yay');
         }
     }
-    return newWord; 
+    return newWord;
 }
-
+   
 //shorter way to do with RegEx
 
 // const vowels = /[aeiou]/;
@@ -41,27 +42,13 @@ function encodeVowelWord(word) {
         "latin" becomes "atin-lay"
         "cheers" becomes "eers-chay"
 */
-let wordss = 'hietgereither';
 
 function encodeConsonantWord(word) {
+    return word
+      .replace(/^[aeiou]\w*/, "$&way")
+      .replace(/(^[^aeiou]+)(\w*)/, "$2-$1ay");
 
-    let spiltWord = word.toLowerCase().split(' ');
-    console.log(spiltWord);
-    
-    let newWord = spiltWord;
-    for (i = 0; i < newWord.length; i++) {
-        if ((newWord[i].charAt(i) === 'a') ||
-            (newWord[i].charAt(i) === 'e') ||
-            (newWord[i].charAt(i) === 'i') ||
-            (newWord[i].charAt(i) === 'o') ||
-            (newWord[i].charAt(i) === 'u')) {
-            return (newWord[i] + 'ay');
-        }
-    }
-    return newWord;
-    
 }
-console.log(encodeConsonantWord(wordss));
 
 /*  
     STEP # 3: Decide whether a given word starts with a vowel sound or consonant sound,
@@ -101,6 +88,7 @@ function encodeText(text) {
 function decodeVowelWord(word) {
     return ''; // replace this!
 }
+
 
 /*  
     STEP # 7: Decode pig latin words into words that begin with a consonant sound. 
@@ -317,91 +305,91 @@ function testDecodeText(words) {
     }
 }
 
-  console.log(
+console.log(
     'Testing STEP # 1: encoding words that begin with a vowel sound...'
-  );
-  if (encodeVowelWord('apple') != '') {
+);
+if (encodeVowelWord('apple') != '') {
     testEncodeVowelWords(testVowelWords);
-  } else {
+} else {
     console.log('encodeVowelWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 2: encoding words that begin with a consonant sound...'
-  );
-  if (encodeConsonantWord('test') != '') {
+);
+if (encodeConsonantWord('test') != '') {
     testEncodeConsonantWords(testSimpleConsonantWords);
-  } else {
+} else {
     console.log('encodeConsonantWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 2 (cont): encoding words that begin with a consonant clusters...'
-  );
-  if (encodeConsonantWord('test') != '') {
+);
+if (encodeConsonantWord('test') != '') {
     testEncodeConsonantWords(testClusteredConsonantWords);
-  } else {
+} else {
     console.log('encodeConsonantWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 3: deciding to encode between vowel and consonant words...'
-  );
-  if (encodeWord('test') != '') {
+);
+if (encodeWord('test') != '') {
     testEncodeWords(testWords);
-  } else {
+} else {
     console.log('encodeWord not implemented!');
-  }
-  console.log('Testing STEP # 4: encode a sentence (no punctuation)...');
-  if (encodeText('test') != '') {
+}
+console.log('Testing STEP # 4: encode a sentence (no punctuation)...');
+if (encodeText('test') != '') {
     testEncodeText(testWords);
-  } else {
+} else {
     console.log('encodeText not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 6: decoding words that begin with a vowel sound...'
-  );
-  if (decodeVowelWord('appleyay') != '') {
+);
+if (decodeVowelWord('appleyay') != '') {
     testDecodeVowelWords(testVowelWords);
-  } else {
+} else {
     console.log('decodeVowelWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 7: decoding words that begin with a consonant sound...'
-  );
-  if (decodeConsonantWord('est-tay') != '') {
+);
+if (decodeConsonantWord('est-tay') != '') {
     testDecodeConsonantWords(testSimpleConsonantWords);
-  } else {
+} else {
     console.log('decodeConsonantWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 7 (cont): decoding words that begin with a consonant clusters...'
-  );
-  if (decodeConsonantWord('est-tay') != '') {
+);
+if (decodeConsonantWord('est-tay') != '') {
     testDecodeConsonantWords(testClusteredConsonantWords);
-  } else {
+} else {
     console.log('decodeConsonantWord not implemented!');
-  }
-  console.log(
+}
+console.log(
     'Testing STEP # 8: deciding to decode between vowel and consonant words...'
-  );
-  if (decodeWord('appleyay') != '') {
+);
+if (decodeWord('appleyay') != '') {
     testDecodeWords(testWords);
-  } else {
+} else {
     console.log('decodeWord not implemented!');
-  }
-  console.log('Testing STEP # 9: encode a sentence (no punctuation)...');
-  if (decodeText('appleyay') != '') {
+}
+console.log('Testing STEP # 9: encode a sentence (no punctuation)...');
+if (decodeText('appleyay') != '') {
     testDecodeText(testWords);
-  } else {
+} else {
     console.log('decodeText not implemented!');
-  }
-  console.log('FINAL: Decoding the chipotle message (no punctuation)...');
-  if (decodeText('appleyay') != '') {
+}
+console.log('FINAL: Decoding the chipotle message (no punctuation)...');
+if (decodeText('appleyay') != '') {
     console.log(decodeText(simpleChipotleMessage));
-  } else {
+} else {
     console.log('decodeText not implemented!');
-  }
-  console.log('BONUS: Decoding the chipotle message (with punctuation)...');
-  if (decodeText('appleyay') != '') {
+}
+console.log('BONUS: Decoding the chipotle message (with punctuation)...');
+if (decodeText('appleyay') != '') {
     console.log(decodeText(chipotleMessage));
-  } else {
+} else {
     console.log('decodeText not implemented!');
-  }
+}
