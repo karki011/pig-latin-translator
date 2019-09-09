@@ -6,7 +6,7 @@
         "eat" becomes "eatyay"
         "omelet" becomes "omeletyay" 
 */
-let vowel = ['a', 'e', 'i', 'o', 'u'];
+const vowels = /[aeiou]/;
 
 function encodeVowelWord(word) {
     let spiltWord = word.toLowerCase().split(' ');
@@ -22,7 +22,7 @@ function encodeVowelWord(word) {
     }
     return newWord;
 }
-   
+
 //shorter way to do with RegEx
 
 // const vowels = /[aeiou]/;
@@ -45,9 +45,8 @@ function encodeVowelWord(word) {
 
 function encodeConsonantWord(word) {
     return word
-      .replace(/^[aeiou]\w*/, "$&way")
-      .replace(/(^[^aeiou]+)(\w*)/, "$2-$1ay");
-
+        .replace(/^[aeiou]\w*/, "$&way")
+        .replace(/(^[^aeiou]+)(\w*)/, "$2-$1ay");
 }
 
 /*  
@@ -62,7 +61,12 @@ function encodeConsonantWord(word) {
         "you" becomes "ou-yay" because it starts with a consonant "y"
 */
 function encodeWord(word) {
-    return ''; // replace this!
+    if (word[0].match(vowels)) {
+        word = encodeVowelWord(word);
+    } else {
+        word = encodeConsonantWord(word);
+    }
+    return word;
 }
 
 /*
@@ -71,6 +75,7 @@ function encodeWord(word) {
 function encodeText(text) {
     return ''; // replace this!
 }
+
 
 /*
     STEP # 5: Create a web form where users can input any message in plain english
